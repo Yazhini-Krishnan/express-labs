@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="finance.js"></script>
+  <script src="/javascripts/finance.js"></script>
+  <script src="/javascripts/calculate.js"></script>
+
 
 </head>
 <body>
@@ -23,82 +25,111 @@
       <a class="navbar-brand" href="#">FINANCE CALCULATORS</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Calculators <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a id="amor">Amortization</a></li>
-            <li><a id="fv">Future Value</a></li>
-            <li><a id="cagr">CAGR</a></li>
-          </ul>
-        </li>
-        
-      </ul>
+      
+          <div class="form-group">
+    <label for="exampleFormControlSelect1"></label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option id="amorForm">Amortization</option>
+      <option id="fvForm">Future Value</option>
+      <option id="cagrForm">CAGR</option>
+      
+    </select>
       
     </div>
   </div>
 </nav>
-  <hr>
+  
   <div class="container" id="amor">
+   <div class="row">
+     <div class="col-6">
+       
+     </div>
+   </div>
     <h3>Amortization</h3>
     
-    <form id="siForm">
+    <form id="amorForm">
       <div class="form-group">
-        <label for="principalSimple">Principal</label>
-        <input type="text" class="form-control" id="principalSimple" placeholder="Enter amount without dollar sign">
+        <label for="principalamor">Principal</label>
+        <input type="text" class="form-control" id="principalamor" placeholder="Enter amount in Rupees">
       </div>
       <div class="form-group">
-        <label for="interestSimple">Interest Rate</label>
-        <input type="text" class="form-control" id="interestSimple" placeholder="Example: 12%">
+        <label for="interestamor">Interest Rate</label>
+        <input type="text" class="form-control" id="interestamor" placeholder="Enter rate">
       </div>
       <div class="form-group">
-        <label for="termSimple">Term of Loan</label>
-        <input type="text" class="form-control" id="termSimple" placeholder="Example: 2 (must be in terms of years)">
+        <label for="termamor">Term of Loan</label>
+        <input type="text" class="form-control" id="termamor" placeholder="Enter in terms of years">
       </div>
-      <button type="submit" class="btn btn-primary" id="btnSimple" onclick="simpleInterest()">Submit</button>
+      <button type="submit" class="btn btn-primary" id="btnamor" onclick="calculate()">Submit</button>
     </form>
-    <div>
-      <p class="lead mt-3" id="siOutput-01"></p>
+    <div class="well" id="finalamount">
+      <p class="lead mt-3" id="sOutput-01"></p>
       <p class="lead mb-3" id="siOutput-02"></p>
     </div>
     <div class="text-center">
-      <input class="btn btn-secondary btn-lg" type="button" value="Reset" onClick="document.getElementById('siForm').reset()">
+      <input class="btn btn-secondary btn-lg" type="button" value="Reset" onClick="document.getElementById('amorForm').reset()">
     </div>
   </div>
   <br>
   <hr>
   <br>
-  <div class="container" div="fv">
+  <div class="container" id="fv">
     <h3>Future Value</h3>
     
-    <form id="ciForm">
+    <form id="fvForm">
       <div class="form-group">
-        <label for="principalCompound">Principal</label>
-        <input type="text" class="form-control" id="principalCompound" placeholder="Enter amount without dollar sign">
+        <label for="fvrate">Rate</label>
+        <input type="text" class="form-control" id="fvrate" placeholder="Enter rate">
       </div>
       <div class="form-group">
-        <label for="interestCompound">Interest Rate</label>
-        <input type="text" class="form-control" id="interestCompound" placeholder="Example: 12%">
+        <label for="fvcashflow">Cash flow</label>
+        <input type="text" class="form-control" id="fvcashflow" placeholder="Enter amount in Rupees">
       </div>
+      
       <div class="form-group">
-        <label for="timesCompounded">Times Compounded per Year</label>
-        <input type="text" class="form-control" id="timesCompounded" placeholder="Example: 4 (means compounded quarterly)">
+        <label for="fvterm">Term of Loan</label>
+        <input type="text" class="form-control" id="fvterm" placeholder="Enter period in years">
       </div>
-      <div class="form-group">
-        <label for="termCompound">Term of Loan</label>
-        <input type="text" class="form-control" id="termCompound" placeholder="Example: 2 (must be in terms of years)">
-      </div>
-      <button type="submit" class="btn btn-primary" id="btnCompound" onclick="compoundInterest()">Submit</button>
+      <button type="submit" class="btn btn-primary" id="btnfv" onclick="calculate()">Submit</button>
     </form>
     <div>
       <p class="lead mt-3" id="ciOutput-01"></p>
       <p class="lead mb-3" id="ciOutput-02"></p>
     </div>
     <div class="text-center">
-      <input class="btn btn-secondary btn-lg" type="button" value="Reset" onClick="document.getElementById('ciForm').reset()">
+      <input class="btn btn-secondary btn-lg" type="button" value="Reset" onClick="document.getElementById('fvForm').reset()">
     </div>
   </div>
+ <br>
+  <hr>
+  <br>
+  <div class="container" id="fv">
+    <h3>CAGR</h3>
+    
+    <form id="cagrForm">
+      <div class="form-group">
+        <label for="cagrBeginningvalue">Beginning Value</label>
+        <input type="text" class="form-control" id="cagrBeginningvalue" placeholder="Enter amount in rupees">
+      </div>
+      <div class="form-group">
+        <label for="cagrEndingvalue">Ending Value</label>
+        <input type="text" class="form-control" id="cagrEndingvalue" placeholder="Enter amount in Rupees">
+      </div>
+      
+      <div class="form-group">
+        <label for="cagrterm">Term of Loan</label>
+        <input type="text" class="form-control" id="cagrterm" placeholder="Enter period in years">
+      </div>
+      <button type="submit" class="btn btn-primary" id="btncagr" onclick="calculate()">Submit</button>
+    </form>
+    <div>
+      <p class="lead mt-3" id="ciOutput-01"></p>
+      <p class="lead mb-3" id="ciOutput-02"></p>
+    </div>
+    <div class="text-center">
+      <input class="btn btn-secondary btn-lg" type="button" value="Reset" onClick="document.getElementById('cagrForm').reset()">
+    </div>
+  </div> 
   
 
 </body>
