@@ -23,6 +23,18 @@ function calculate1() {
 
 }
 
+function calculate2() {
+    var begiValue = get("cagrBeginningvalue").value;
+    var endValue = get("cagrEndingvalue").value;
+    var term = get("cagrterm").value;
+    var finalamount2 = get("finalamount1")
+
+    var finance = new Finance();
+    var payment = finance.FV(begiValue, endValue, term)
+    finalamount2.textContent = payment;
+
+}
+
 function showcalc() {
 
     var amorcalc = get("amor");
@@ -33,13 +45,13 @@ function showcalc() {
     hide(cagrcalc);
     var selectelement = get("calculatorOptions");
     var selectvalue = selectelement.value;
-    if (selectvalue == 1) {
+    if (selectvalue == "amor") {
         console.log("show amortization");
         show(amorcalc);
 
 
 
-    } else if (selectvalue == 2) {
+    } else if (selectvalue == "fv") {
         console.log("show fv");
         show(fvcalc);
     } else {
