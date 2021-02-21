@@ -9,6 +9,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="/javascripts/finance.js"></script>
   <script src="/javascripts/calculate.js"></script>
+  
+  
 
 
 </head>
@@ -22,29 +24,33 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">FINANCE CALCULATORS</a>
+      <a class="navbar-brand" href="#">FINANCIAL CALCULATORS</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       
-          <div class="form-group">
-    <label for="exampleFormControlSelect1"></label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option id="amorForm">Amortization</option>
-      <option id="fvForm">Future Value</option>
-      <option id="cagrForm">CAGR</option>
+  <div class="form-group">
+    <label for="options"></label>
+    <select class="form-control" id="calculatorOptions" onchange="showcalc()">
+
+      <option value="1">Amortization</option>
+      <option value="2">Future Value</option>
+      <option value="3">CAGR</option>
       
     </select>
+    
       
+    </div>
     </div>
   </div>
 </nav>
+
+
+
   
-  <div class="container" id="amor">
-   <div class="row">
-     <div class="col-6">
-       
-     </div>
-   </div>
+ 
+
+   <div class="container" id="amor" style="display:none" >
+     
     <h3>Amortization</h3>
     
     <form id="amorForm">
@@ -60,20 +66,26 @@
         <label for="termamor">Term of Loan</label>
         <input type="text" class="form-control" id="termamor" placeholder="Enter in terms of years">
       </div>
-      <button type="submit" class="btn btn-primary" id="btnamor" onclick="calculate()">Submit</button>
+      
+      <button type="button" class="btn btn-primary" id="btnamor" onclick="calculate()" value="submit">Submit</button>
     </form>
     <div class="well" id="finalamount">
-      <p class="lead mt-3" id="sOutput-01"></p>
-      <p class="lead mb-3" id="siOutput-02"></p>
+    
+      
     </div>
     <div class="text-center">
       <input class="btn btn-secondary btn-lg" type="button" value="Reset" onClick="document.getElementById('amorForm').reset()">
     </div>
   </div>
+   </div>
+
   <br>
   <hr>
   <br>
-  <div class="container" id="fv">
+
+
+
+  <div class="container" id="cagr" style="display:none">
     <h3>Future Value</h3>
     
     <form id="fvForm">
@@ -90,11 +102,10 @@
         <label for="fvterm">Term of Loan</label>
         <input type="text" class="form-control" id="fvterm" placeholder="Enter period in years">
       </div>
-      <button type="submit" class="btn btn-primary" id="btnfv" onclick="calculate()">Submit</button>
+      <button type="button" class="btn btn-primary" id="btnfv" onclick="calculate1()">Submit</button>
     </form>
-    <div>
-      <p class="lead mt-3" id="ciOutput-01"></p>
-      <p class="lead mb-3" id="ciOutput-02"></p>
+    <div class="well" id="finalamount1">
+      
     </div>
     <div class="text-center">
       <input class="btn btn-secondary btn-lg" type="button" value="Reset" onClick="document.getElementById('fvForm').reset()">
@@ -103,7 +114,7 @@
  <br>
   <hr>
   <br>
-  <div class="container" id="fv">
+  <div class="container" id="cagr" style="display:none">
     <h3>CAGR</h3>
     
     <form id="cagrForm">
@@ -120,11 +131,10 @@
         <label for="cagrterm">Term of Loan</label>
         <input type="text" class="form-control" id="cagrterm" placeholder="Enter period in years">
       </div>
-      <button type="submit" class="btn btn-primary" id="btncagr" onclick="calculate()">Submit</button>
+      <button type="button" class="btn btn-primary" id="btncagr" onclick="calculate2()">Submit</button>
     </form>
     <div>
-      <p class="lead mt-3" id="ciOutput-01"></p>
-      <p class="lead mb-3" id="ciOutput-02"></p>
+      
     </div>
     <div class="text-center">
       <input class="btn btn-secondary btn-lg" type="button" value="Reset" onClick="document.getElementById('cagrForm').reset()">
