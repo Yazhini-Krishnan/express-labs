@@ -10,10 +10,7 @@
   <script src="/javascripts/finance.js"></script>
   <script src="/javascripts/calculate.js"></script>
   
-  
-
-
-</head>
+  </head>
 <body>
 
 
@@ -65,7 +62,7 @@
         <input type="text" class="form-control" id="termamor" placeholder="Enter in terms of years">
       </div>
       
-      <button type="button" class="btn btn-primary" id="btnamor" onclick="calculate()" value="submit">Submit</button>
+      <button type="button" class="btn btn-primary" id="btnamor" onclick="calculateAmor()" value="submit">Submit</button>
     </form>
     <div class="well" id="finalamount">
     
@@ -76,12 +73,6 @@
     </div>
   </div>
    </div>
-
-  <br>
-  <hr>
-  <br>
-
-
 
   <div class="container" id="fv" style="display:none">
     <h3>Future Value</h3>
@@ -100,7 +91,7 @@
         <label for="fvterm">Term of Loan</label>
         <input type="text" class="form-control" id="fvterm" placeholder="Enter period in years">
       </div>
-      <button type="button" class="btn btn-primary" id="btnfv" onclick="calculate1()">Submit</button>
+      <button type="button" class="btn btn-primary" id="btnfv" onclick="calculateFv()">Submit</button>
     </form>
     <div class="well" id="finalamount1">
       
@@ -109,9 +100,7 @@
       <input class="btn btn-secondary btn-lg" type="button" value="Reset" onClick="document.getElementById('fvForm').reset()">
     </div>
   </div>
- <br>
-  <hr>
-  <br>
+ 
   <div class="container" id="cagr" style="display:none">
     <h3>CAGR</h3>
     
@@ -129,7 +118,7 @@
         <label for="cagrterm">Term of Loan</label>
         <input type="text" class="form-control" id="cagrterm" placeholder="Enter period in years">
       </div>
-      <button type="button" class="btn btn-primary" id="btncagr" onclick="calculate2()">Submit</button>
+      <button type="button" class="btn btn-primary" id="btncagr" onclick="calculateCagr()">Submit</button>
     </form>
     <div class="well" id="finalamount2"></div>
     

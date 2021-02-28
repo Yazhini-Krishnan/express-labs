@@ -1,4 +1,4 @@
-function calculate() {
+function calculateAmor() {
     var principal = get("principalamor").value;
     var interest = get("interestamor").value;
     var term = get("termamor").value;
@@ -11,7 +11,7 @@ function calculate() {
 
 }
 
-function calculate1() {
+function calculateFv() {
     var rate = get("fvrate").value;
     var cashflow = get("fvcashflow").value;
     var termfv = get("fvterm").value;
@@ -23,11 +23,11 @@ function calculate1() {
 
 }
 
-function calculate2() {
+function calculateCagr() {
     var begiValue = get("cagrBeginningvalue").value;
     var endValue = get("cagrEndingvalue").value;
     var term = get("cagrterm").value;
-    var finalamount2 = get("finalamount1")
+    var finalamount2 = get("finalamount2")
 
     var finance = new Finance();
     var payment = finance.FV(begiValue, endValue, term)
