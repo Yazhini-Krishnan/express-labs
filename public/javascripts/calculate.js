@@ -23,7 +23,7 @@ function calculateFv() {
 
 }
 
-function calculateCagr() {
+function calculateCag() {
     var begiValue = get("cagrBeginningvalue").value;
     var endValue = get("cagrEndingvalue").value;
     var term = get("cagrterm").value;
@@ -60,7 +60,6 @@ function showcalc() {
     }
 
 }
-
 
 
 function get(id) {
